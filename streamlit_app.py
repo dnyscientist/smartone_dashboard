@@ -35,6 +35,23 @@ for jenis_surat in jenis_surat_list:
 # Create DataFrame
 df = pd.DataFrame(data)
 
+# Display the logo in the top-left corner
+st.markdown(
+    """
+    <style>
+    .logo {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.image("logo-kemenkeu.png", width=100)
+
 # Sidebar filters
 st.sidebar.title("Filter Surat")
 jenis_surat_filter = st.sidebar.multiselect("Pilih Jenis Surat", options=df['Jenis Surat'].unique(), default=df['Jenis Surat'].unique())
